@@ -1,10 +1,7 @@
 import { Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
-interface FooterProps {
-  onNavigate: (route: "privacy" | "support") => void;
-}
-
-export function Footer({ onNavigate }: FooterProps) {
+export function Footer() {
   return (
     <footer className="bg-white border-t border-slate-100 mt-32">
       <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
@@ -25,20 +22,20 @@ export function Footer({ onNavigate }: FooterProps) {
             <h4 className="text-slate-900 mb-4 text-sm">Quick Links</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <button
-                  onClick={() => onNavigate("privacy")}
+                <Link
+                  to="/terms-of-use"
                   className="text-slate-500 hover:text-slate-900 transition-colors"
                 >
                   Terms of Use
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate("support")}
+                <Link
+                  to="/support"
                   className="text-slate-500 hover:text-slate-900 transition-colors"
                 >
                   Support
-                </button>
+                </Link>
               </li>
               <li>
                 <a

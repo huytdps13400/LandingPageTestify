@@ -8,11 +8,7 @@ import { Toaster } from "./ui/sonner";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-interface SupportPageProps {
-  onNavigate: (route: "privacy" | "support") => void;
-}
-
-export function SupportPage({ onNavigate }: SupportPageProps) {
+export function SupportPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -46,7 +42,7 @@ export function SupportPage({ onNavigate }: SupportPageProps) {
   return (
     <div className="min-h-screen bg-white">
       <Toaster />
-      <Header currentRoute="support" onNavigate={onNavigate} />
+      <Header />
 
       {/* Hero Section */}
       <section className="border-b border-slate-100 py-20">
@@ -223,7 +219,7 @@ export function SupportPage({ onNavigate }: SupportPageProps) {
         </div>
       </div>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 }

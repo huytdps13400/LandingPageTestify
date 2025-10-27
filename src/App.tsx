@@ -1,14 +1,15 @@
-import { useState } from 'react';
-import { PrivacyPolicyPage } from './components/PrivacyPolicyPage';
-import { SupportPage } from './components/SupportPage';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
+import { SupportPage } from "./components/SupportPage";
 
 export default function App() {
-  const [currentRoute, setCurrentRoute] = useState<'privacy' | 'support'>('privacy');
-
   return (
-    <>
-      {currentRoute === 'privacy' && <PrivacyPolicyPage onNavigate={setCurrentRoute} />}
-      {currentRoute === 'support' && <SupportPage onNavigate={setCurrentRoute} />}
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Navigate to="/terms-of-use" replace />} />
+        <Route path="/terms-of-use" element={<PrivacyPolicyPage />} />
+        <Route path="/support" element={<SupportPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }

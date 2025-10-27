@@ -2,14 +2,10 @@ import { Shield } from "lucide-react";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 
-interface PrivacyPolicyPageProps {
-  onNavigate: (route: "privacy" | "support") => void;
-}
-
-export function PrivacyPolicyPage({ onNavigate }: PrivacyPolicyPageProps) {
+export function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Header currentRoute="privacy" onNavigate={onNavigate} />
+      <Header />
 
       {/* Hero Section */}
       <section className="border-b border-slate-100 py-20">
@@ -369,7 +365,7 @@ export function PrivacyPolicyPage({ onNavigate }: PrivacyPolicyPageProps) {
         </div>
       </div>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer />
     </div>
   );
 }
