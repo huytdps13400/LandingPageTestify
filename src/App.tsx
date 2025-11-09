@@ -1,15 +1,46 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { PrivacyPolicyPage } from "./components/PrivacyPolicyPage";
-import { SupportPage } from "./components/SupportPage";
+import { useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Policy from "./pages/Policy";
+import Terms from "./pages/Terms";
 
-export default function App() {
+// GSAP imports
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
+
+function App() {
+  useEffect(() => {
+    // Performance detection for animations
+    const isLowPerformance =
+      (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (isLowPerformance) {
+      // Disable ScrollTrigger for low-performance devices
+      ScrollTrigger.disable();
+
+      // Add class to body for CSS fallbacks
+      document.body.classList.add("animations-disabled");
+    }
+
+    // Cleanup function
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
-    <BrowserRouter>
+    <div className="min-h-screen bg-white">
       <Routes>
-        <Route path="/" element={<Navigate to="/terms-of-use" replace />} />
-        <Route path="/terms-of-use" element={<PrivacyPolicyPage />} />
-        <Route path="/support" element={<SupportPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/policy" element={<Policy />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
-    </BrowserRouter>
+    </div>
   );
 }
+
+export default App;
