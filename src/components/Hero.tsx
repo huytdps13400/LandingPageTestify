@@ -328,10 +328,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Phone Mockups */}
           <div className="relative lg:order-2">
             <div className="relative flex justify-center items-center">
-              {/* Left Phone */}
               <div ref={phoneLeftRef} className="relative">
                 <PhoneMockup
                   src="/assets/en-1-Introduction.png"
