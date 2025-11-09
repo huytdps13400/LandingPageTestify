@@ -29,17 +29,21 @@ npm run build
 # ✅ Build time: ~1.75s
 ```
 
-#### **3. Vercel Configuration Enhanced:**
+#### **3. Vercel Configuration Fixed:**
 ```json
 {
   "rewrites": [{"source": "/((?!api).*)", "destination": "/index.html"}],
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "source": "/assets/(.*)",  // ✅ Covers all PNG images
       "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
     },
     {
-      "source": "/*.png",
+      "source": "/fonts/(.*)",   // ✅ Covers all font files
+      "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
+    },
+    {
+      "source": "/favicon.ico",  // ✅ Favicon specific
       "headers": [{"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}]
     }
   ]
