@@ -6,40 +6,33 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'sans': ['SourceSans3', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'inter': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'cabin': ['Cabin', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+      },
       colors: {
         primary: {
-          50: '#fef7ed',
-          100: '#fdedd3', 
-          200: '#fad7a5',
-          300: '#f6bc6e',
-          400: '#f19a37',
-          500: '#F5AD18', // Main primary color
-          600: '#e69415',
-          700: '#bf7a12',
-          800: '#985f10',
-          900: '#7c4e0e',
+          50: '#fef7e7',
+          100: '#fdecc4',
+          200: '#fad68a',
+          300: '#f7bf50',
+          400: '#F5AD18', // Main primary color
+          500: '#e8940a',
+          600: '#d17e00',
+          700: '#af6800',
+          800: '#8d5200',
+          900: '#6b3c00',
         },
-      },
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'scale-in': 'scaleIn 0.3s ease-out',
+        'float': 'float 3s ease-in-out infinite',
+        'float-delayed': 'float 3s ease-in-out infinite 1.5s',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
-        },
-        slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
-        },
-        scaleIn: {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
-          '100%': { transform: 'scale(1)', opacity: '1' },
+        float: {
+          '0%, 100%': { transform: 'translateY(0px)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },
