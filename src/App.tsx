@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Policy from "./pages/Policy";
 import Terms from "./pages/Terms";
+import RemoveAccount from "./pages/RemoveAccount";
 
 // GSAP imports
 import { gsap } from "gsap";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/policy" element={<Policy />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/remove-account" element={<RemoveAccount />} />
       </Routes>
     </div>
   );

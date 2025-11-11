@@ -102,3 +102,36 @@ export interface CTASection {
     href: string;
   };
 }
+
+// Account Removal Form Types
+export interface RemoveAccountForm {
+  email: string;
+  confirmEmail: string;
+  acceptTerms: boolean;
+}
+
+export interface FormErrors {
+  email?: string;
+  confirmEmail?: string;
+  acceptTerms?: string;
+}
+
+// Modal Types
+export interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
+  children: React.ReactNode;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+}
+
+export interface WarningModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  title: string;
+  message: string;
+  confirmText?: string;
+  cancelText?: string;
+  type?: 'danger' | 'warning' | 'info';
+}

@@ -5,6 +5,7 @@ const Footer: React.FC = () => {
   const footerLinks: FooterLink[] = [
     { label: "Privacy Policy", href: "/policy" },
     { label: "Terms of Service", href: "/terms" },
+    { label: "Delete Account", href: "/remove-account" },
     { label: "Support", href: "#contact" },
     { label: "Documentation", href: "#features" },
   ];
